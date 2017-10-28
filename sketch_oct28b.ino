@@ -7,6 +7,11 @@ void setup() {
 }
  
 void loop() {
+   connect_pi();
+}
+
+ 
+void connect_pi(){
   while(Serial.available()){    
     income += (char)Serial.read();  
   }
@@ -16,6 +21,6 @@ void loop() {
     income = ""; 
   }
   delay(10);
-}
+ }
 
 
