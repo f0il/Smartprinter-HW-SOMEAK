@@ -7,17 +7,29 @@ void setup() {
 }
  
 void loop() {
-   connect_pi();
+   print_pi();
 }
 
  
-void connect_pi(){
+void print_pi(){
   while(Serial.available()){    
     income += (char)Serial.read();  
   }
    
   if(income != 0){ 
     Thermal.print(income);
+    income = ""; 
+  }
+  delay(10);
+ }
+
+void print_serial(){
+  while(Serial.available()){    
+    income += (char)Serial.read();  
+  }
+   
+  if(income != 0){ 
+    Serial.print(income);
     income = ""; 
   }
   delay(10);
